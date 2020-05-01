@@ -2,7 +2,11 @@
   "name": "react-ts",
   "version": "1.0.0",
   "description": "React and TypeScript example starter project",
-  "keywords": ["typescript", "react", "starter"],
+  "keywords": [
+    "typescript",
+    "react",
+    "starter"
+  ],
   "main": "src/index.tsx",
   "dependencies": {
     "react": "^16.12.0",
@@ -12,13 +16,21 @@
   "devDependencies": {
     "@types/react": "16.9.19",
     "@types/react-dom": "16.9.5",
+    "quicktype": "15.0.223",
+    "shelljs": "^0.8.4",
     "typescript": "3.7.5"
   },
   "scripts": {
+    "pre": "quicktype -l ts -s schema -o meta/src --src meta/schema",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
