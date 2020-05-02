@@ -1,15 +1,18 @@
 import * as React from "react";
-import {Json, JsonMap} from '../TsTypes'
+import {JSONSchema7} from "json-schema";
 
 interface Props {
-  json?: Json
+  json?: JSONSchema7
 }
 
 export default function MetaForm(props: Props) {
-  const json = (props.json) as JsonMap
+  const propNames = Object.keys(props.json?.properties || {});
   return (
-    <div className="MetaForm">
-      {json?.title}
+    <div className="MetaForm input-groups">
+      <div className="form-group">
+        <label htmlFor="firstName">{propNames[0]}</label>
+        <input type="text" className="form-control" id="firstName" />
+      </div>
     </div>
   )
 }

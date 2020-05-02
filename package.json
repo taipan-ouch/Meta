@@ -9,7 +9,6 @@
   ],
   "main": "src/index.tsx",
   "dependencies": {
-    "jquery": "3.5.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-scripts": "3.4.1"
@@ -17,13 +16,13 @@
   "devDependencies": {
     "@types/react": "16.9.34",
     "@types/react-dom": "16.9.7",
-    "@types/jquery": "3.3.36",
+    "@types/json-schema": "7.0.4",
     "quicktype": "15.0.223",
     "shelljs": "0.8.4",
     "typescript": "3.8.3"
   },
   "scripts": {
-    "pre": "quicktype -l ts -s schema -o src/Types.ts --src public/meta/schema",
+    "pre": "quicktype -l ts -s schema -o src/Types.ts --src src/meta/schema",
     "start": "react-scripts start",
     "build": "npm run pre & react-scripts build",
     "test": "react-scripts test --env=jsdom",

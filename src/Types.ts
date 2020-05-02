@@ -30,7 +30,7 @@ export class Convert {
         return cast(JSON.parse(json), r("Contact"));
     }
 
-    public static contactToJson(value: { properties: { firstName: string; surName: string } }): string {
+    public static contactToJson(value: Contact): string {
         return JSON.stringify(uncast(value, r("Contact")), null, 2);
     }
 }
