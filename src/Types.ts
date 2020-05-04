@@ -1,13 +1,13 @@
 // To parse this data:
 //
-//   import { Convert, Contact } from "./file";
+//   import { Convert, TwoProperties } from "./file";
 //
-//   const contact = Convert.toContact(json);
+//   const twoProperties = Convert.toTwoProperties(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface Contact {
+export interface TwoProperties {
     $schema:    string;
     title:      string;
     type:       string;
@@ -26,12 +26,12 @@ export interface Name {
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toContact(json: string): Contact {
-        return cast(JSON.parse(json), r("Contact"));
+    public static toTwoProperties(json: string): TwoProperties {
+        return cast(JSON.parse(json), r("TwoProperties"));
     }
 
-    public static contactToJson(value: Contact): string {
-        return JSON.stringify(uncast(value, r("Contact")), null, 2);
+    public static twoPropertiesToJson(value: TwoProperties): string {
+        return JSON.stringify(uncast(value, r("TwoProperties")), null, 2);
     }
 }
 
@@ -165,7 +165,7 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "Contact": o([
+    "TwoProperties": o([
         { json: "$schema", js: "$schema", typ: "" },
         { json: "title", js: "title", typ: "" },
         { json: "type", js: "type", typ: "" },

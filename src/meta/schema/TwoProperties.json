@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Contact",
+  "title": "KitchenSink",
   "type": "object",
   "properties": {
     "firstName": {

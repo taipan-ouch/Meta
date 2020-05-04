@@ -3,7 +3,7 @@ import './styles.css';
 import {JSONSchema7} from "json-schema";
 
 import MetaForm from 'components/MetaForm/MetaForm';
-import ContactSchema from 'meta/schema/Contact.json'
+import ContactSchema from 'meta/schema/TwoProperties.json'
 
 
 export default function App(): React.ReactElement<Element> {
