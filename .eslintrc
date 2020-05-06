@@ -2,7 +2,9 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "eslint-plugin-import",
+    "eslint-plugin-jsx-a11y"
   ],
   "settings": {
     "react": {
@@ -16,5 +18,9 @@
     "plugin:react/recommended"
   ],
   "rules": {
+    "import/order": ["error", {
+      "newlines-between": "always-and-inside-groups",
+      "groups": ["builtin", "external", "parent" ,"sibling", "internal", "index"]
+    }]
   }
 }

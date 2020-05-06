@@ -20,7 +20,10 @@
     "@types/json-schema": "7.0.4",
     "@types/jest": "25.2.1",
     "@types/lodash": "4.14.150",
+    "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint": "6.8.0",
+    "prettier": "2.0.5",
     "@typescript-eslint/parser": "2.30.0",
     "@typescript-eslint/eslint-plugin": "2.30.0",
     "react-dom": "16.13.1",
@@ -31,7 +34,7 @@
   "scripts": {
     "pre": "quicktype -l ts -s schema -o src/Types.ts --src src/meta/schema",
     "start": "react-scripts start",
-    "build": "npm run pre & react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint src --ext .tsx"
