@@ -2,11 +2,28 @@ import * as React from 'react';
 import { render } from 'react-dom';
 
 import App from 'App';
-import Sidebar from 'components/Sidebar/Sidebar'
+import Sidebar, {SidebarSection} from 'components/Sidebar/Sidebar'
 import Canvas from 'components/Canvas/Canvas'
 
+const sections: SidebarSection[] = [
+  {
+    name: 'meta',
+    label: 'meta',
+    items: [
+      {
+        label: 'Create Schema',
+        name: 'createSchema',
+        onSelect: (name) => {
+          alert(name)
+        },
+        dataFeather: 'file-edit',
+      },
+    ],
+  },
+];
+
 const sidebarContainer = document.getElementById('sidebar');
-render(<Sidebar />, sidebarContainer);
+render(<Sidebar sections={sections} />, sidebarContainer);
 
 const canvasContainer = document.getElementById('canvas');
 render(<Canvas />, canvasContainer);
