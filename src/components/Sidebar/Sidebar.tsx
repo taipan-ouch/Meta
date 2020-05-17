@@ -24,7 +24,7 @@ const DEFAULT_NODE_NAME = 'root';
 
 function RenderSidebarSectionItem(props: { item: SidebarItem }): ReactElement {
   return (
-    <li className="nav-item">
+    <li className="side-nav-menu-item">
       <button className={`${props.item.name} btn btn-link`} onClick={() => props.item.onSelect(props.item.name)}>
         <span data-feather={props.item.dataFeather}></span>
         {props.item.label}

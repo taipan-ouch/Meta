@@ -22,7 +22,7 @@ const sections: SidebarSection[] = [
   },
 ];
 
-const sidebarContainer = document.getElementById('sidebar');
+const sidebarContainer = document.getElementById('sideNav');
 render(<Sidebar sections={sections} />, sidebarContainer);
 
 const canvasContainer = document.getElementById('canvas');
