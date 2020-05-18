@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 
-import App from 'App';
-import Sidebar, {SidebarSection} from 'components/Sidebar/Sidebar'
-import Canvas from 'components/Canvas/Canvas'
+import Sidebar, { SidebarSection } from 'components/Sidebar/Sidebar';
+import Canvas from 'components/Canvas/Canvas';
+import { ReactElement } from 'react';
 
 const sections: SidebarSection[] = [
   {
@@ -14,7 +14,7 @@ const sections: SidebarSection[] = [
         label: 'Create Schema',
         name: 'createSchema',
         onSelect: (name) => {
-          alert(name)
+          alert(name);
         },
         dataFeather: 'file-edit',
       },
@@ -22,11 +22,22 @@ const sections: SidebarSection[] = [
   },
 ];
 
-const sidebarContainer = document.getElementById('sideNav');
-render(<Sidebar sections={sections} />, sidebarContainer);
+function RenderSidebarAndContent(): ReactElement {
+  return (
+    <div className="row">
+      <nav className="col-md-2 d-none d-md-block bg-light sidebar">
+        <aside id="sidebar">
+          <ul>
+            <Sidebar sections={sections} />
+          </ul>
+        </aside>
+      </nav>
+      <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <Canvas />
+      </main>
+    </div>
+  );
+}
 
-const canvasContainer = document.getElementById('canvas');
-render(<Canvas />, canvasContainer);
-
-const rootElement = document.getElementById('root');
-render(<App />, rootElement);
+const rootElement = document.getElementById('app-container');
+render(<RenderSidebarAndContent />, rootElement);
