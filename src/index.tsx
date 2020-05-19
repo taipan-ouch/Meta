@@ -2,8 +2,8 @@ import * as React from 'react';
 import { render } from 'react-dom';
 
 import Sidebar, { SidebarSection } from 'components/Sidebar/Sidebar';
-import Canvas from 'components/Canvas/Canvas';
-import { ReactElement } from 'react';
+import Canvas, { CanvasContentKey } from 'components/Canvas/Canvas';
+import {ReactElement, useState} from 'react';
 
 const sections: SidebarSection[] = [
   {
@@ -20,6 +20,7 @@ const sections: SidebarSection[] = [
 ];
 
 function RenderSidebarAndContent(): ReactElement {
+  const [canvasContentKey] = useState(CanvasContentKey.SCHEMA)
   return (
     <div id="app-container" className="container-fluid">
       <div className="row">
@@ -31,7 +32,7 @@ function RenderSidebarAndContent(): ReactElement {
           </aside>
         </nav>
         <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          <Canvas />
+          <Canvas canvasContentKey={canvasContentKey}/>
         </main>
       </div>
     </div>
