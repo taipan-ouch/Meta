@@ -25,14 +25,13 @@ test('should render just i node root level', () => {
         {
           label: TEST_VALUE,
           name: TEST_VALUE,
-          onSelect,
-          dataFeather: TEST_VALUE,
+          dataFeather: TEST_VALUE
         },
       ],
     },
   ];
   act(() => {
-    render(<Sidebar sections={sections} />, container);
+    render(<Sidebar sections={sections} onSelectItem={onSelect}/>, container);
   });
   act(() => {
     SidebarWidget.clickItem(TEST_VALUE);
@@ -53,14 +52,13 @@ test('should render just 1 node with section', () => {
         {
           label: TEST_ITEM_VALUE,
           name: TEST_ITEM_VALUE,
-          onSelect,
           dataFeather: TEST_ITEM_VALUE,
         },
       ],
     },
   ];
   act(() => {
-    render(<Sidebar sections={sections} />, container);
+    render(<Sidebar sections={sections} onSelectItem={jest.fn} />, container);
   });
   expect(SidebarWidget.getSectionLabel(TEST_SECTION_VALUE)).toBe(TEST_SECTION_VALUE);
 });
