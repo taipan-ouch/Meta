@@ -8,7 +8,8 @@ export enum CanvasContentKey {
   SCHEMA = 'SCHEMA'
 }
 
-export default function Canvas(props: { canvasContentKey: CanvasContentKey }): ReactElement {
+export default function Canvas(props: { canvasContentKey: string }): ReactElement {
+  debugger;
   switch (props.canvasContentKey) {
     case CanvasContentKey.HOME:
       return <Home />;

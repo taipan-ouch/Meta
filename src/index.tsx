@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { render } from 'react-dom';
-
-import Sidebar, { SidebarSection } from 'components/Sidebar/Sidebar';
-import Canvas, { CanvasContentKey } from 'components/Canvas/Canvas';
 import {ReactElement, useState} from 'react';
+import {render} from 'react-dom';
+
+import Sidebar, {SidebarSection} from 'components/Sidebar/Sidebar';
+import Canvas, {CanvasContentKey} from 'components/Canvas/Canvas';
 
 const sections: SidebarSection[] = [
   {
@@ -11,23 +11,32 @@ const sections: SidebarSection[] = [
     label: 'meta',
     items: [
       {
-        label: 'Create Schema',
-        name: 'createSchema',
-        dataFeather: 'file-edit'
+        label: 'Home',
+        name: CanvasContentKey.HOME,
+        dataFeather: 'home'
       },
+      {
+        label: 'Create Schema',
+        name: CanvasContentKey.SCHEMA,
+        dataFeather: 'file-edit'
+      }
     ],
   },
 ];
 
 function RenderSidebarAndContent(): ReactElement {
-  const [canvasContentKey] = useState(CanvasContentKey.SCHEMA)
+  const [canvasContentKey, setCanvasContentKey] = useState<string>(CanvasContentKey.SCHEMA.toString())
   return (
     <div id="app-container" className="container-fluid">
       <div className="row">
         <nav className="col-md-2 d-none d-md-block bg-light sidebar">
           <aside id="sidebar">
             <ul>
-              <Sidebar sections={sections} onSelectItem={(name) => alert(name)}/>
+              <Sidebar sections={sections} onSelectItem={
+                (name) => {
+                  setCanvasContentKey(name)
+                }
+              }/>
             </ul>
           </aside>
         </nav>
